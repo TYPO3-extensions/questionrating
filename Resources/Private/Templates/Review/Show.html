@@ -1,0 +1,102 @@
+<f:layout name="standard.html" />
+
+<f:section name="content">
+				<h1>Review</h1>
+				<!-- ###ERROR_BOX### -->
+				<f:flashMessages class="error" />
+
+				<f:render partial="questionDetail" arguments="{question: question, showToggleButton: 0}"/>
+
+				<table class="rating" border="0"  cellspacing="0" cellpadding="0">
+					<thead>
+					<tr>
+						<th class="mainhead">Review Status</th>
+
+						<th class="arrow"><img onclick="toggle('ratingBody',this,'{f:uri.resource(path: 'Images/pfeil.gif')}','{f:uri.resource(path: 'Images/pfeil-close.gif')}')" src="{f:uri.resource(path: 'Images/pfeil.gif')}" /></th>
+					</tr>
+					</thead>
+					<tbody id="ratingBody">
+					<tr>
+						<td colspan="6">
+							<div>Votes: {review.votes}</div>
+							<div><f:link.action action="editQuestion" arguments="{review: review}">edit Question</f:link.action></div>
+						</td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+						<td colspan="6" class="final"></td>
+					</tr>
+					</tfoot>
+				</table>
+
+				<table class="discussion" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<th class="mainhead">Comments</th>
+						<th class="small-right disable">
+						</th>
+						<th class="arrow"><img onclick="toggle('discussionTable',this,'{f:uri.resource(path: 'Images/pfeil.gif')}','{f:uri.resource(path: 'Images/pfeil-close.gif')}')" id="discussionToggleArrow" src="{f:uri.resource(path: 'Images/pfeil.gif')}" /></th>
+					</tr>
+				</table>
+				<div id="discussionTable">
+
+					<table class="discussion discussion-subtable" border="0" cellspacing="0" cellpadding="0">
+					<tbody>
+
+					<f:for each="{review.reviewcomments}" as="comment">
+
+						<!-- ###DISCUSSION_ROW### start -->
+						<tr>
+							<td width="100">
+								{comment.user.username}<br/>
+								<f:format.date format="H:i:s">{comment.crdate}</f:format.date></td>
+							<td class="messagetext"><f:format.nl2br>{comment.message}</f:format.nl2br></td>
+							<td class="small-right button">&#160;</td>
+						</tr>
+						<!-- ###DISCUSSION_ROW### end -->
+					</f:for>
+					</tbody>
+					</table>
+				</div>
+
+				<table class="rating" border="0"  cellspacing="0" cellpadding="0">
+					<thead>
+					<tr>
+						<th class="mainhead">Submit Comment</th>
+
+						<th class="arrow"><img onclick="toggle('ratingBody',this,'{f:uri.resource(path: 'Images/pfeil.gif')}','{f:uri.resource(path: 'Images/pfeil-close.gif')}')" src="{f:uri.resource(path: 'Images/pfeil.gif')}" /></th>
+					</tr>
+					</thead>
+					<tbody id="ratingBody">
+					<tr>
+						<td class="bg" colspan="6">
+
+							<div class="bigform">
+							<f:form.errors for="reviewcomment">
+								<div class="error">
+										<f:translate key="propertyName_{error.propertyName}">{error.propertyName}</f:translate>:
+										<f:for each="{error.errors}" as="errorDetail">
+												{errorDetail.message}
+										</f:for>
+								</div>
+							</f:form.errors>
+							<f:form method="post" controller="Review" action="saveComment" name="reviewcomment" object="{reviewcomment}" arguments="{review: review}">
+								<h1>{currentUser.username}</h1>
+								<p class="field"><b>Comment:</b><br/>
+								<f:form.textarea property="message" rows="5" cols="100" /> </p><br/>
+								<p class="field"><b>Review done:</b>
+								<f:form.checkbox name="vote" value="1" checked="{vote}"/> </p><br/>
+								<f:form.submit style="width: 120px;" value="Submit" />
+							</f:form>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+						<td colspan="6" class="final"></td>
+					</tr>
+					</tfoot>
+				</table>
+
+</f:section>

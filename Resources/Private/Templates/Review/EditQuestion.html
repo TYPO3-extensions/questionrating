@@ -1,0 +1,88 @@
+{namespace qr = Tx_Questionrating_ViewHelpers}
+<f:layout name="standard.html" />
+
+<f:section name="content">
+				<h1>Edit question</h1>
+				<!-- ###ERROR_BOX### -->
+				<f:flashMessages class="error" />
+								<f:form.errors for="question">
+										<div class="error">
+												<f:translate key="propertyName_{error.propertyName}">{error.propertyName}</f:translate>:
+												<f:for each="{error.errors}" as="errorDetail">
+														{errorDetail.message}
+												</f:for>
+										</div>
+								</f:form.errors>
+<f:form method="post" controller="Review" action="saveQuestion" name="question" object="{question}" arguments="{review: review}">
+
+<!-- ###QUESTION_MAIN### begin -->
+
+				<table class="question" border="0"  cellspacing="0" cellpadding="0">
+					<thead>
+					<tr>
+						<th class="mainhead"><f:translate key="headline_question">###TABLE_HEADLINE_QUESTION###</f:translate></th>
+						<th class="small-right" width="75"><b>ID: {question.xmlId}</b></th>
+						<th ><f:format.crop maxCharacters="30" append=" ...">{question.questionTitle}</f:format.crop></th>
+						<th class="small-right"><input style="width:110px;" type="button" value="OVERVIEW" onclick="window.location.href='{f:uri.action(controller: 'Question')}'" /></th>
+						<th class="arrow"><img  onclick="toggle('questionBody',this,'{f:uri.resource(path: 'Images/pfeil.gif')}','{f:uri.resource(path: 'Images/pfeil-close.gif')}');" src="{f:uri.resource(path: 'Images/pfeil.gif')}" /></th>
+					</tr>
+					</thead>
+					<tbody id='questionBody'>
+
+					<tr>
+						<td colspan="5" class="spacer"></td>
+					</tr>
+					<tr>
+						<td><b>Q:</b></td>
+						<td colspan="3" class="questiontext"><qr:displayTextAndCode>{question.questiontext}</qr:displayTextAndCode></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><b></b></td>
+						<td colspan="3" class="questiontext"><f:form.textarea property="questiontext" rows="5" cols="100" /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><b>A:</b></td>
+						<td colspan="3">
+							<f:for each="{question.allAnswers}" key="id" as="answer">
+								<!-- ###ANSWER### begin -->
+								<f:if condition="{qr:inArray(needle:'{id}' array:'{question.correctanswer}')}">
+									<f:then>
+										<div style="padding-bottom:1em;" class="highlight" id="answer_{id}"><qr:displayTextAndCode>({id}.) {answer}</qr:displayTextAndCode></div>
+										<div style="padding-bottom:1em;" class="highlight">
+												<f:if condition="{setCorrectAnswer}">Is correct: <f:form.checkbox name="correctanswer[]" value="{id}" checked="1"/><br /></f:if>
+												<f:form.textarea property="answer{id}text" rows="5" cols="100" />
+										</div>
+									</f:then>
+									<f:else>
+										<div style="padding-bottom:1em;" class="" id="answer_{id}"><qr:displayTextAndCode>({id}.) {answer}</qr:displayTextAndCode></div>
+										<div style="padding-bottom:1em;" class="">
+												<f:if condition="{setCorrectAnswer}">Is correct: <f:form.checkbox name="correctanswer[]" value="{id}" checked="0"/><br /></f:if>
+												<f:form.textarea property="answer{id}text" rows="5" cols="100" />
+										</div>
+									</f:else>
+								</f:if>
+								<!-- ###ANSWER### end -->
+							</f:for>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="5" align="center">
+						<f:form.hidden property="xmlId" />
+						<f:form.submit style="width: 120px;" value="Submit" /></td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+						<td colspan="5" class="final"></td>
+					</tr>
+					</tfoot>
+				</table>
+
+
+<!-- ###QUESTION_MAIN### end -->
+</f:form>
+
+</f:section>

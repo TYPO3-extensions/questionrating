@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_qr_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="leader_label">Leader:</label>
+			<label index="userlogin_label">Logged in as:</label>
+			<label index="step">Step</label>
+			<label index="rating_label">Rating:</label>
+			<label index="rating_label_long">Rating (1=difficult ... 99=easy):</label>
+			<label index="step_1_description">Questions which have to be rated.</label>
+			<label index="step_2_description">Questions which are discussed.</label>
+			<label index="step_3_description">Questions opened for the final rating.</label>
+			<label index="step_4_description">Questions that have been exported.</label>
+			<label index="propertyName_questiontext">Question</label>
+			<label index="headline_id">id</label>
+			<label index="headline_question">question</label>
+			<label index="step_1_headline_right">sme</label>
+			<label index="step_2_headline_right">sme</label>
+			<label index="step_3_headline_right">final rating</label>
+			<label index="step_4_headline_right"></label>
+		</languageKey>
+		<languageKey index="default_x" type="array">
+			<label index="leader_label">Leader:</label>
+			<label index="userlogin_label">Angemeldet als:</label>
+			<label index="step">Step</label>
+			<label index="rating_label">Rating:</label>
+			<label index="rating_label_long">Rating (1=difficult ... 99=easy):</label>
+			<label index="step_1_description">Fragen, die zur Bewertung offen stehen.</label>
+			<label index="step_2_description">Fragen, die diskutiert werden.</label>
+			<label index="step_3_description">Fragen, die zur finalen Bewertung offen stehen bzw. abgeschlossen sind.</label>
+			<label index="step_4_description">Fragen, die exportiert wurden.</label>
+			<label index="step_1_headline_id">id</label>
+			<label index="step_2_headline_id">id</label>
+			<label index="step_3_headline_id">id</label>
+			<label index="step_4_headline_id">id</label>
+			<label index="step_1_headline_question">question</label>
+			<label index="step_2_headline_question">question</label>
+			<label index="step_3_headline_question">question</label>
+			<label index="step_4_headline_question">question</label>
+			<label index="step_1_headline_right">sme</label>
+			<label index="step_2_headline_right">sme</label>
+			<label index="step_3_headline_right">final rating</label>
+			<label index="step_4_headline_right"></label>
+		</languageKey>
+	</data>
+</T3locallang>

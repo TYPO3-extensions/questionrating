@@ -1,0 +1,45 @@
+<f:layout name="standard.html" />
+
+<f:section name="content">
+
+				<!-- ###ERROR_BOX### -->
+				<f:flashMessages class="error" />
+				<f:render partial="questionDetail" arguments="{question: question, showToggleButton: 1}"/>
+				<f:if condition='{isLeader} != 1'>
+					<f:render partial="rating1" arguments="{currentStep: 1}" />
+
+							<!-- ###STEP1### begin -->
+							<div class="bigform">
+								<f:if condition='{allowEdit}'>
+									<f:then>
+										<f:form.errors for="rating">
+											<div class="error">
+												<f:for each="{error.errors}" as="errorDetail">
+													 {errorDetail.message}
+												</f:for>
+											</div>
+										</f:form.errors>
+										<f:form method="post" controller="Rating" action="ratingStep1" name="rating" object="{rating}" arguments="{question : question}">
+											<h1>{currentUser.username}</h1>
+											<p class="field"><b><f:translate key="rating_label_long">###RATINGLABEL###</f:translate></b><br/>
+											<f:form.textbox property="ratingValue" size="3" value="{f:if(condition: '{rating.ratingValue}', then: '{rating.ratingValue}')}"/> </p>
+											<p class="field"><b>Comment:</b><br/>
+											<f:form.textarea name="message" rows="5" cols="100" value="{message}"/> </p><br/>
+											<f:form.submit style="width: 120px;" value="1ST RATING" />
+										</f:form>
+									</f:then>
+									<f:else>
+										<h1>{currentUser.username}</h1>
+										<p class="field"><b><f:translate key="rating_label">###RATINGLABEL###</f:translate></b><br/>
+										 {rating.ratingValue} </p><br />
+										<p class="field"><b>Comment:</b><br/>
+										 {message} </p><br/>
+									</f:else>
+								</f:if>
+							</div>
+							<!-- ###STEP1### end -->
+
+					<f:render partial="rating2" arguments="{currentStep: 1}" />
+				</f:if>
+</f:section>
+

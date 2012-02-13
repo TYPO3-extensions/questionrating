@@ -1,0 +1,37 @@
+
+
+<script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/tx_questionrating_main.js')}"></script>
+<link href="{f:uri.resource(path: 'CSS/tx_questionrating_main.css')}" rel="stylesheet" />
+
+		<div class="main">
+			<div class="head">
+				<f:link.action controller="Question"><img src="{f:uri.resource(path: 'Images/logo.gif')}" /></f:link.action>
+<!--				<f:link.action controller="Question"><f:image src="EXT:questionrating/EXT:questionrating/Resources/Images/logo.gif" alt="" /></f:link.action> -->
+				<div class="headline">
+					<p class="mainheadline">Certified TYPO3 Integrator</p>
+					<p class="subheadline">Question-rating</p>
+				</div>
+				<f:if condition='{isLeader}' >
+				<f:then>
+					<div class="box">
+						<p><f:translate key="leader_label">###LOGINLABEL###</f:translate> <b>{currentUser.username}</b></p>
+						<p class="small"><f:link.action additionalParams="{logintype: 'logout'}">Logout</f:link.action> <f:link.action controller="Importer">Importtool</f:link.action></p>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="box login">
+						<p><f:translate key="userlogin_label">###LOGINLABEL###</f:translate> <b>{currentUser.username}</b></p>
+						<p class="small"><f:link.action additionalParams="{logintype: 'logout'}">Logout</f:link.action></p>
+					</div>
+					</f:else>
+				</f:if>
+				<div class="box">
+					<p class="center"><b><f:link.action controller="Question" action="info">Rating Instructions</f:link.action></b></p>
+					<p class="center"><b><a href="/?id=70"">Main menu</a></b></p>
+				</div>
+
+			</div>
+			<div class="content">
+					<f:render section="content" />
+			</div>
+		</div>

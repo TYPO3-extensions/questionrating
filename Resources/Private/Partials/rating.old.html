@@ -1,0 +1,28 @@
+<!-- ###RATING_MAIN### begin -->
+				<table class="rating" border="0"  cellspacing="0" cellpadding="0">
+					<thead>
+					<tr>
+						<th class="mainhead">Rating</th>
+						<th class="small-right {f:if(condition: '{currentStep} != 1', then: 'disable')}"><f:translate key="step">###STEPLABEL###</f:translate> 1</th>
+						<th class="small-right {f:if(condition: '{currentStep} != 2', then: 'disable')}"><f:translate key="step">###STEPLABEL###</f:translate> 2</th>
+						<th class="small-right {f:if(condition: '{currentStep} != 3', then: 'disable')}"><f:translate key="step">###STEPLABEL###</f:translate> 3</th>
+						<th class="small-right {f:if(condition: '{currentStep} != 4', then: 'disable')}"><f:translate key="step">###STEPLABEL###</f:translate> 4</th>
+
+						<th class="arrow"><img onclick="toggle('ratingBody',this,'{f:uri.resource(path: 'Images/pfeil.gif')}','{f:uri.resource(path: 'Images/pfeil-close.gif')}')" src="{f:uri.resource(path: 'Images/pfeil.gif')}" /></th>
+					</tr>
+					</thead>
+					<tbody id="ratingBody">
+					<tr>
+						<td class="bg" colspan="6">
+
+							<f:render section="ratingDetail" />
+						</td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+						<td colspan="6" class="final"></td>
+					</tr>
+					</tfoot>
+				</table>
+<!-- ###RATING_MAIN### end -->

@@ -1,0 +1,25 @@
+<T3DataStructure>
+  <sheets>
+    <sDEF>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>Options</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.infoText>
+            <TCEforms>
+              <label>InfoText</label>
+              <config>
+                <type>text</type>
+                <cols>52</cols>
+                <rows>5</rows>
+              </config>
+              <defaultExtras>richtext[cut|copy|paste|formatblock|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|image|line|chMode]:rte_transform[mode=ts_css]</defaultExtras>
+            </TCEforms>
+          </settings.infoText>
+        </el>
+      </ROOT>
+    </sDEF>
+  </sheets>
+</T3DataStructure>

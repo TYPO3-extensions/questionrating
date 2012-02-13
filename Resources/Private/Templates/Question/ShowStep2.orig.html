@@ -1,0 +1,28 @@
+{namespace qr = Tx_Questionrating_ViewHelpers}
+<f:layout name="standard.html" />
+
+<f:section name="content">
+
+				<!-- ###ERROR_BOX### -->
+				<f:renderFlashMessages class="error" />
+				<f:render partial="questionDetail" arguments="{question: question, showToggleButton: 0}"/>
+				<f:render partial="rating" arguments="{currentStep: 2}" />
+				<f:render partial="discussion" arguments="{question: question, leaderGroup: leaderGroup, isLeader: isLeader, currentUser: currentUser, allowDiscussion: allowDiscussion}"/>
+</f:section>
+
+<f:section name="ratingDetail">
+							<!-- ###STEP2### start -->
+							<table  class="rating-sub" cellspacing="0" cellpadding="0">
+								<tr>
+									<f:for each="{ratingArray}" as="ratingInfo">
+									<!-- ###STEP2_CELL### start -->
+									<td>
+										<f:render partial="ratingOverviewBox" arguments="{ratingInfo: ratingInfo, currentUser: currentUser, allowDiscussion: allowDiscussion}" />
+									</td>
+									<!-- ###STEP2_CELL### end -->
+								</f:for>
+								</tr>
+							</table>
+							<!-- ###STEP2### end -->
+</f:section>
+

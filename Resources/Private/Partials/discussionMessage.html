@@ -1,0 +1,57 @@
+{namespace qr = Tx_Questionrating_ViewHelpers}
+					<table class="discussion discussion-subtable" border="0" cellspacing="0" cellpadding="0">
+					<tbody>
+
+					<f:for each="{discussions}" as="discussion">
+						<!-- ###DISCUSSION_ROW### start -->
+						<tr>
+							<td width="100">
+								<f:if condition="{qr:inArray(needle:'{leaderGroup}' array:'{discussion.fromUser.usergroups}')}">
+									<f:then>
+									<h1  class="{f:if(condition: '{isLeader}', then: 'highlight')}">
+										{discussion.fromUser.username} ({leaderGroup.title})
+									</h1>
+								</f:then>
+								<f:else>
+										<h1  class="{f:if(condition: '{currentUser} == {discussion.fromUser}', then: 'highlight')}">
+											{discussion.fromUser.username}
+										</h1>
+								</f:else>
+								</f:if>
+									&gt;&gt;
+								<f:if condition="{discussion.toUser}">
+									<f:then>
+									<b class="{f:if(condition: '{currentUser} == {discussion.toUser}', then: 'highlight')}">
+										{discussion.toUser.username}
+									</b>
+									</f:then>
+									<f:else>
+										<f:if condition="{discussion.toLeader}">
+											<f:then>
+												<b class="{f:if(condition: '{isLeader}', then: 'highlight')}">
+													{leaderGroup.title}
+												</b>
+											</f:then>
+											<f:else>
+												<b class="">All</b>
+											</f:else>
+										</f:if>
+									</f:else>
+								</f:if>
+									<br/><f:format.date format="H:i:s">{discussion.crdate}</f:format.date></td>
+							<td class="messagetext">{discussion.message}</td>
+							<td class="small-right button">
+							<f:if condition="{qr:inArray(needle:'{leaderGroup}' array:'{discussion.fromUser.usergroups}')}">
+								<f:then>
+									<input style="width:100px;" type="button" value="REPLY" {f:if(condition: '{allowDiscussion}', then: 'onclick="Questionrating.Question.plugin.changeSendto(-1);"', else: 'disabled')} />
+								</f:then>
+								<f:else>
+									<input style="width:100px;" type="button" value="REPLY" {f:if(condition: '{allowDiscussion}', then: 'onclick="Questionrating.Question.plugin.changeSendto({discussion.fromUser.uid});"', else: 'disabled')} />
+								</f:else>
+							</f:if>
+							</td>
+						</tr>
+						<!-- ###DISCUSSION_ROW### end -->
+					</f:for>
+					</tbody>
+					</table>

@@ -1,0 +1,77 @@
+{namespace qr = Tx_Questionrating_ViewHelpers}
+				<!-- ###TABLE### begin -->
+				<table class="overview" border="0" cellspacing="0" cellpadding="0">
+					<thead>
+					<tr>
+						<th class="mainhead"><f:translate key="step">###STEP###</f:translate> {currentStep}</th>
+						<th colspan="6" class="small-right"><f:translate key="step_{currentStep}_description">###DESCRIPTION###</f:translate></th>
+						<th class="arrow"><img  onclick="toggle('{currentStep}',this,'{f:uri.resource(path: 'Images/pfeil.gif')}','{f:uri.resource(path: 'Images/pfeil-close.gif')}');" src="{f:uri.resource(path: 'Images/pfeil.gif')}" /></th>
+					</tr>
+					</thead>
+					<tbody id="{currentStep}">
+					<tr>
+						<th class="sub"><f:translate key="headline_id">###TABLE_HEADLINE_ID###</f:translate></th>
+						<th class="sub"><f:translate key="headline_question">###TABLE_HEADLINE_QUESTION###</f:translate></th>
+						<th colspan="6" class="sub"><f:translate key="step_{currentStep}_headline_right">###TABLE_HEADLINE_SME###</f:translate></th>
+					</tr>
+					<f:if condition="{currentStep} < 3">
+						<f:then>
+						<!-- ###QUESTION_ROW### begin -->
+						<f:for each="{questions}" as="question">
+							<tr>
+								<td><b>{question.xmlId}</b></td>
+								<td><f:link.action action="{action}" arguments="{question: question}"><f:format.crop maxCharacters="30" append=" ...">{question.questionTitle}</f:format.crop></f:link.action></td>
+								<!-- ###USER_CELL### begin -->
+								<qr:for start="0" until="6" array="{question.ratings}" arrayValue="rating">
+									<f:if condition="{rating}">
+										<f:then>
+											<td class="sme">{rating.user.username}</td>
+										</f:then>
+										<f:else>
+												<td class="sme highlight">&#160;</td>
+										</f:else>
+									</f:if>
+								</qr:for>
+								<!-- ###USER_CELL### end -->
+							</tr>
+						</f:for>
+						<!-- ###QUESTION_ROW### end -->
+						</f:then>
+						<f:else>
+							<f:for each="{questions}" as="question">
+									<tr>
+										<td><b>{question.xmlId}</b></td>
+										<td><f:link.action action="{action}" arguments="{question: question}"><f:format.crop maxCharacters="30" append=" ...">{question.questionTitle}</f:format.crop></f:link.action></td>
+										<!-- ###USER_CELL### begin -->
+										<qr:for start="0" until="6" array="{question.ratings}" arrayValue="rating">
+											<f:if condition="{rating.finalRating}">
+												<f:then>
+													<td class="sme">
+														<f:if condition="{qr:displayFinalRating(question:'{question}' currentUser:'{currentUser}')}">
+															<f:then>
+																<b>{rating.finalRatingValue}</b>
+															</f:then>
+															<f:else>
+																 {rating.user.username}
+															</f:else>
+														</f:if>
+													</td>
+												</f:then>
+												<f:else>
+													<td class="sme highlight">{rating.user.username}</td>
+												</f:else>
+											</f:if>
+										</qr:for>
+										<!-- ###USER_CELL### end -->
+									</tr>
+							</f:for>
+						</f:else>
+					</f:if>
+					</tbody>
+					<tfoot>
+					<tr>
+						<td colspan="8" class="final"></td>
+					</tr>
+					</tfoot>
+				</table>
+				<!-- ###TABLE### end -->

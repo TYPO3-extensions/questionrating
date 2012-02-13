@@ -1,0 +1,17 @@
+<f:layout name="standard.html" />
+
+<f:section name="content">
+				<h1>Review overview</h1>
+				<!-- ###ERROR_BOX### -->
+				<f:flashMessages class="error" />
+
+
+				<f:if condition="{technicalReviews}">
+					<f:render partial="reviewOverview" arguments="{reviews: technicalReviews, currentStep: 'technical', currentUser: currentUser}"/>
+				</f:if>
+				<f:if condition="{translationReviews}">
+					<f:render partial="reviewOverview" arguments="{reviews: translationReviews, currentStep: 'translation', currentUser: currentUser}"/>
+				</f:if>
+
+
+</f:section>    

@@ -1,0 +1,76 @@
+{namespace qr = Tx_Questionrating_ViewHelpers}
+<f:layout name="standard.html" />
+
+<f:section name="content">
+
+				<!-- ###ERROR_BOX### -->
+				<f:renderFlashMessages class="error" />
+				<f:render partial="questionDetail" arguments="{question: question, showToggleButton: 0}"/>
+				<f:render partial="rating" arguments="{currentStep: 3}" />
+				<f:render partial="discussion" arguments="{question: question, leaderGroup: leaderGroup, isLeader: isLeader, currentUser: currentUser, allowDiscussion: 0}"/>
+</f:section>
+
+<f:section name="ratingDetail">
+						<f:if condition="{renderFinalRatingReviewBox}">
+							<f:then>
+								<f:render section="ratingDetailReview" />
+							</f:then>
+							<f:else>
+								<f:render section="ratingDetailNormal" />
+							</f:else>
+						</f:if>
+</f:section>
+
+<f:section name="ratingDetailNormal">
+							<!-- ###STEP2### start -->
+							<table  class="rating-sub" cellspacing="0" cellpadding="0">
+								<tr>
+									<f:for each="{ratingArray}" as="ratingInfo">
+									<!-- ###STEP2_CELL### start -->
+									<td>
+										<f:render partial="ratingOverviewBox" arguments="{ratingInfo: ratingInfo, currentUser: currentUser, allowDiscussion: 0}" />
+										<f:if condition="{renderFinalViewBox}">
+											<f:render partial="ratingFinalViewBox" arguments="{rating: ratingInfo.rating, currentUser: currentUser}" />
+										</f:if>
+										<f:if condition="{renderFinalRatingBox}">
+											<f:if condition="{ratingInfo.rating.user}=={currentUser}">
+												<f:render partial="ratingFinalRatingBox" arguments="{question: question, rating: finalRating}" />
+											</f:if>
+										</f:if>
+									</td>
+									<!-- ###STEP2_CELL### end -->
+								</f:for>
+								</tr>
+							</table>
+							<!-- ###STEP2### end -->
+</f:section>
+
+<f:section name="ratingDetailReview">
+							<!-- ###STEP2### start -->
+<f:form method="post" controller="Rating" action="closeReview" name="rating" arguments="{question : question}" >
+							<table  class="rating-sub" cellspacing="0" cellpadding="0">
+								<tr>
+									<f:for each="{ratingArray}" as="ratingInfo">
+									<!-- ###STEP2_CELL### start -->
+									<td>
+										<f:render partial="ratingOverviewBox" arguments="{ratingInfo: ratingInfo, currentUser: currentUser, allowDiscussion: 0}" />
+										<f:if condition="{renderFinalViewBox}">
+											<f:render partial="ratingFinalViewBox" arguments="{rating: ratingInfo.rating, currentUser: currentUser}" />
+										</f:if>
+										<div class="smallform smallform-sub rating">
+											<p><f:form.textbox name="finalRatingValueArray[{ratingInfo.rating.uid}]" size="3" value="{ratingInfo.rating.finalRatingValue}"/> </p><br/>
+										</div>
+									</td>
+									<!-- ###STEP2_CELL### end -->
+								</f:for>
+								</tr>
+								<tr>
+									<td colspan="5">&#160;</td>
+									<td align="right"><f:form.submit style="width:120px;margin-right:5px;"  value="CLOSE"  /></td>
+								</tr>
+							</table>
+</f:form>
+							<!-- ###STEP2### end -->
+
+
+</f:section>

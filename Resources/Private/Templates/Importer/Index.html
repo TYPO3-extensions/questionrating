@@ -1,0 +1,53 @@
+<f:layout name="standard.html" />
+
+<f:section name="content">
+<f:form method="post" controller="Importer" action="import" name="importer" >
+<p><f:form.submit  value="IMPORT" /></p>
+				<table class="overview" border="0" cellspacing="0" cellpadding="0">
+					<thead>
+					<tr>
+						<th class="mainhead">Importtool</th>
+						<th colspan="2" class="small-right"><input style="width:110px;" type="button" value="OVERVIEW" onclick="window.location.href='{f:uri.action(controller: 'Question')}'" /></th>
+						<th class="arrow"><img  onclick="toggle('importBody',this,'{f:uri.resource(path: 'Images/pfeil.gif')}','{f:uri.resource(path: 'Images/pfeil-close.gif')}');" src="{f:uri.resource(path: 'Images/pfeil.gif')}" /></th>
+					 </tr>
+					 </thead>
+					 <tbody id="importBody">
+					 <tr>
+						 <th class="sub">Import</th>
+						 <th class="sub">ID</th>
+						 <th class="sub">Question</th>
+						 <th class="sub">Author</th>
+					 </tr>        
+				<!-- ###IMPORT_CONTENT_OVERVIEW_QUESTION### begin -->
+				<f:for each="{xmlitemArray}" as="xmlitem">
+					<tr>
+						<td>
+						<f:if condition="{xmlitem.inDb}">
+							<f:then>
+								<f:form.checkbox name="importIds[]" value="{xmlitem.id}" checked="0" /> <br /> 
+								<span class="warning"><b>Rating aktiv</b></span>
+							</f:then>
+							<f:else>
+								<f:form.checkbox name="importIds[]" value="{xmlitem.id}" checked="1" />
+							</f:else>
+						</f:if>
+						</td>
+						<td>{xmlitem.id}</td>
+						<td><f:format.html>{xmlitem.questionText}</f:format.html></td>
+						<td>{xmlitem.author}</td>
+					</tr>
+				</f:for>   
+			
+			<!-- ###IMPORT_CONTENT_OVERVIEW_QUESTION### end -->
+
+					 </tbody>
+					 <tfoot>           
+					 <tr>
+						 <td colspan="4" class="final"></td>
+					 </tr>
+					 </tfoot>
+				</table>
+<br />
+<f:form.submit  value="IMPORT" />
+</f:form>
+</f:section>

@@ -1,0 +1,66 @@
+{namespace qr = Tx_Questionrating_ViewHelpers}
+<!-- ###DISCUSSION_MAIN### start -->
+
+				<table class="discussion" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<th class="mainhead">Discussion</th>
+						<th class="small-right disable">
+							<f:if condition="{allowDiscussion}">
+							<f:if condition="{isLeader}">
+								<input type="button" value="STOP DISCUSSION" onClick="location.href='{f:uri.action(action: 'closeDiscussion', arguments:{question: question})}'" />
+							</f:if>
+							</f:if>
+						</th>
+						<th class="arrow"><img onclick="toggle('discussionTable',this,'{f:uri.resource(path: 'Images/pfeil.gif')}','{f:uri.resource(path: 'Images/pfeil-close.gif')}')" id="discussionToggleArrow" src="{f:uri.resource(path: 'Images/pfeil.gif')}" /></th>
+					</tr>
+				</table>
+				<div id="discussionTable">
+				<table class="discussion discussion-subtable" border="0" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<td colspan="2" class="filter"><b>Filter:</b>
+									<select style="width:115px;" id="route" size="1">
+										<option value="both">both</option>
+										<option value="to">to</option>
+										<option value="from">from</option>
+									</select>
+									<input type="checkbox" id="filter_0" value="0" /> ALL
+									<qr:foreach each="{question.ratings}" as="rating" loop="loop">
+										<input type="checkbox" id="filter_{loop.current}" value="{rating.user.uid}" /> {rating.user.username}
+									</qr:foreach>
+									<input type="checkbox" id="filter_7" value="-1" />  <span class="leader">{leaderGroup.title}</span> </td>
+								<td class="small-right filter button"><input style="width:55px;" id="set" type="button" value="SET" /></td>
+								<td class="small-right filter button"><input style="width:85px;" id="showAll" type="button" value="SHOW ALL" /></td>
+							</tr>
+						</thead>
+					</table>
+					<div  id='messageBody'>
+						<f:render partial="discussionMessage" arguments="{discussions: question.discussions, leaderGroup: leaderGroup, isLeader: isLeader, currentUser: currentUser, allowDiscussion: allowDiscussion}"/>
+
+					</div>
+					<f:if condition="{allowDiscussion}">
+					<table class="discussion discussion-subtable" border="0" cellspacing="0" cellpadding="0">
+
+					<tfoot>
+						<tr>
+							<td colspan="3" class="comment"><b>Comment to:</b> <span class="select-spacer">&#160;</span>
+							<input type="radio" name="sendto" checked="checked" value="0" id="sendto_0" onclick="Questionrating.Question.plugin.changeSendto(this.value)" /> ALL
+							<qr:foreach each="{question.ratings}" as="rating" loop="loop">
+								<f:if condition="{rating.user} != {currentUser}">
+									<input type="radio" name="sendto" id="sendto_{rating.user.uid}" value="{rating.user.uid}" onclick="Questionrating.Question.plugin.changeSendto(this.value);" /> {rating.user.username}
+								</f:if>
+							</qr:foreach>
+							<f:if condition="{isLeader} != 1">
+								<input type="radio" name="sendto" id="sendto_-1" value="-1" onclick="Questionrating.Question.plugin.changeSendto(this.value)" /> <span class="leader">{leaderGroup.title}</span> </td>
+							</f:if>
+						</tr>
+						<tr>
+							<td colspan="2" class="comment-input"><input style="width:800px;" type="text" id="messageInput" size="100" /> </td>
+							<td  class="comment-input small-right button"><input  style="width:70px;" type="button" value="SEND" id="send" /></td>
+						</tr>
+					</tfoot>
+				</table>
+				</f:if>
+				</div>
+
+<!-- ###DISCUSSION_MAIN### end -->

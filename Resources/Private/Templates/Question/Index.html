@@ -1,0 +1,27 @@
+
+<f:layout name="standard.html" />
+
+<f:section name="content">
+
+<!-- ###OVERVIEW_MAIN### begin -->
+				<h1>Question overview</h1>
+				<!-- ###ERROR_BOX### -->
+				<f:flashMessages class="error" />
+				<f:if condition="{isLeader}">        
+				<f:if condition="{closeQuestions}">
+					<f:render partial="questionOverview" arguments="{questions: closeQuestions, currentStep: 4, action: 'showStep4', currentUser: currentUser}"/>
+				</f:if>
+				</f:if>
+				<f:if condition="{finalQuestions}">
+					<f:render partial="questionOverview" arguments="{questions: finalQuestions, currentStep: 3, action: 'showStep3', currentUser: currentUser}"/>
+				</f:if>
+				<f:if condition="{discussQuestions}">
+					<f:render partial="questionOverview" arguments="{questions: discussQuestions, currentStep: 2, action: 'showStep2', currentUser: currentUser}"/>
+				</f:if>
+				<f:if condition="{openQuestions}">
+					<f:render partial="questionOverview" arguments="{questions: openQuestions, currentStep: 1, action: 'showStep1', currentUser: currentUser}"/>
+				</f:if>
+				<br />
+				<input type="checkbox" {f:if(condition: '{showall}', then: 'checked')}  onclick="location.href='{f:uri.action(action: 'toggleShowall')}'" /> 
+				 show all questions
+</f:section>    

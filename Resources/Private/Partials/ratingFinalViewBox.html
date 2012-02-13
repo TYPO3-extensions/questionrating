@@ -1,0 +1,6 @@
+										 <f:if condition="{rating.finalRating}">
+										 <div class="smallform smallform-sub {f:if(condition: '{rating.user} == {currentUser}', then: 'highlight')}">
+												 <p class="final-rating-text"><b>Final Rating:</b></p>
+											 <span class="big">{rating.finalRatingValue}</span>
+										 </div>
+										 </f:if>

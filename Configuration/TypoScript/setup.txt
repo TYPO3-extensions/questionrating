@@ -1,0 +1,14 @@
+questionrating_pi1 < ajax
+questionrating_pi1.config.additionalHeaders >
+questionrating_pi1 {  
+	typeNum = 1268404925
+	10 < tt_content.list.20.questionrating_pi1
+}
+
+plugin.tx_questionrating {
+	settings {
+		leaderGroupUid = {$plugin.tx_questionrating.leaderGroupUid}
+		technicalReviewGroupUid = {$plugin.tx_questionrating.technicalReviewGroupUid}
+		translationReviewGroupUid = {$plugin.tx_questionrating.translationReviewGroupUid}
+	}
+}

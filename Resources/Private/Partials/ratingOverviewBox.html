@@ -1,0 +1,10 @@
+										 <div class="smallform {f:if(condition: '{ratingInfo.rating.user} == {currentUser}', then: 'highlight')}">
+											 <h1>{ratingInfo.rating.user.username}</h1>
+											 <p><b><f:translate key="rating_label">###RATINGLABEL###</f:translate></b> <span class="big">{ratingInfo.rating.ratingValue}</span></p>
+											 <p><b>Comments:</b></p>
+											 <p class="small"><a href="#" onclick="return Questionrating.Question.plugin.showDiscussion('from',{ratingInfo.rating.user.uid});">sent</a> <span id="sendcount_{ratingInfo.rating.user.username}">({ratingInfo.sendcount})</span></p>
+											 <p class="small"><a href="#" onclick="return Questionrating.Question.plugin.showDiscussion('to',{ratingInfo.rating.user.uid});">receive</a> <span id="receivecount_{ratingInfo-rating.user.username}">({ratingInfo.receivecount})</span></p><br/>
+											 <f:if condition="{allowDiscussion}">
+												<input style="width:120px;" type="button" value="DISCUSS" onClick="Questionrating.Question.plugin.showDiscussion('both',{ratingInfo.rating.user.uid});"/>
+											 </f:if>
+										 </div>

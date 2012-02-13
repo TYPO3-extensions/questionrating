@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'questionrating'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_questionrating_domain_model_question">question</label>
+			<label index="tx_questionrating_domain_model_question.xml_id">xml_id</label>
+			<label index="tx_questionrating_domain_model_question.status.I.0">open</label>
+			<label index="tx_questionrating_domain_model_question.status.I.1">discuss</label>
+			<label index="tx_questionrating_domain_model_question.status.I.2">final</label>
+			<label index="tx_questionrating_domain_model_question.status">status</label>
+			<label index="tx_questionrating_domain_model_question.active">active</label>
+			<label index="tx_questionrating_domain_model_question.questiontext">questiontext</label>
+			<label index="tx_questionrating_domain_model_question.answer1text">answer1text</label>
+			<label index="tx_questionrating_domain_model_question.answer2text">answer2text</label>
+			<label index="tx_questionrating_domain_model_question.answer3text">answer3text</label>
+			<label index="tx_questionrating_domain_model_question.answer4text">answer4text</label>
+			<label index="tx_questionrating_domain_model_question.answer5text">answer5text</label>
+			<label index="tx_questionrating_domain_model_question.answer6text">answer6text</label>
+			<label index="tx_questionrating_domain_model_question.answer7text">answer7text</label>
+			<label index="tx_questionrating_domain_model_question.answer8text">answer8text</label>
+			<label index="tx_questionrating_domain_model_question.answer9text">answer9text</label>
+			<label index="tx_questionrating_domain_model_question.answer10text">answer10text</label>
+			<label index="tx_questionrating_domain_model_question.correctanswer">correctanswer</label>
+			<label index="tx_questionrating_domain_model_question.ratings">ratings</label>
+			<label index="tx_questionrating_domain_model_question.discussions">discussions</label>
+			<label index="tx_questionrating_domain_model_rating">rating</label>
+			<label index="tx_questionrating_domain_model_rating.user">user</label>
+			<label index="tx_questionrating_domain_model_rating.question">question</label>
+			<label index="tx_questionrating_domain_model_rating.rating">rating</label>
+			<label index="tx_questionrating_domain_model_rating.final_rating">final_rating</label>
+			<label index="tx_questionrating_domain_model_rating.final_rating_value">final_rating_value</label>
+			<label index="tx_questionrating_domain_model_discussion">discussion</label>
+			<label index="tx_questionrating_domain_model_discussion.from_user">from_user</label>
+			<label index="tx_questionrating_domain_model_discussion.from_leader">from_leader</label>
+			<label index="tx_questionrating_domain_model_discussion.to_user">to_user</label>
+			<label index="tx_questionrating_domain_model_discussion.to_leader">to_leader</label>
+			<label index="tx_questionrating_domain_model_discussion.question">question</label>
+			<label index="tx_questionrating_domain_model_discussion.message">message</label>
+			<label index="tx_questionrating_domain_model_review">domain_model_review</label>
+			<label index="tx_questionrating_domain_model_review.xml_id">xml_id</label>
+			<label index="tx_questionrating_domain_model_review.headline">headline</label>
+			<label index="tx_questionrating_domain_model_review.status">status</label>
+			<label index="tx_questionrating_domain_model_review.votes">votes</label>
+			<label index="tx_questionrating_domain_model_review.reviewcomments">reviewcomments</label>
+			<label index="tx_questionrating_domain_model_reviewcomment">domain_model_reviewcomment</label>
+			<label index="tx_questionrating_domain_model_reviewcomment.message">message</label>
+			<label index="tx_questionrating_domain_model_reviewcomment.review">review</label>
+			<label index="tx_questionrating_domain_model_reviewcomment.user">user</label>
+			<label index="tt_content.list_type_pi1">Question Rating</label>
+			<label index="tt_content.list_type_pi2">Question Rating Import</label>
+		</languageKey>
+	</data>
+</T3locallang>

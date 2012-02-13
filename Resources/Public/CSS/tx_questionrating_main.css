@@ -1,0 +1,417 @@
+// taken from reset.css
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}
+
+.main {
+	background-color:#fff;
+	width:960px;
+	margin:0px auto;
+	text-align:left;
+	font-family:Arial;
+}
+
+.head {
+	margin-left: 10px;
+	margin-top: 15px;
+	margin-bottom: 2px;
+	height:50px;
+}
+
+.head img {
+	float:left;
+}
+.head .headline {
+	float:left;
+	margin-left:38px;
+	margin-top:6px;
+}
+
+.head .headline .mainheadline {
+	font-size:24px;
+	font-weight: bold;
+}
+
+.head .headline .subheadline {
+	font-size:14px;
+}
+
+.head .box {
+	width:154px;
+	margin-top:6px;
+	margin-right:10px;
+	font-size:12px;
+	float:right;
+	border:2px solid #ff8700;
+	padding:6px 8px;
+}
+
+.head .box b {
+	font-weight: bold;
+	color:#ff8700;
+}
+
+.head .login {
+	border:2px solid #66a552;
+}
+.head .login b {
+	color:#66a552;
+}
+
+.head .box p.center {
+	text-align:center;
+}
+
+.head .box p.small {
+ font-size:10px;
+}
+
+.content h1 {
+	margin-left: 10px;
+	margin-top: 10px;
+	color:#ff8700;
+	font-size:20px;
+	font-weight: bold;
+}
+
+.content h2 {
+	margin-top: 10px;
+	color:#ff8700;
+	font-size:15px;
+	font-weight: bold;
+}
+
+.content h3 {
+	margin-top: 10px;
+	color:#ff8700;
+	font-weight: bold;
+}
+
+.content p {
+	margin-bottom: 1em;
+}
+
+a, a:visited, a:hover, a:active {
+	color:#000;
+}
+
+.content {
+	margin-bottom:30px;
+	clear: both;
+}
+
+.content ul {
+	padding-left:40px;
+}
+
+.content li {
+	list-style: disc outside none;
+}
+
+/* table */
+.content table {
+	font-size:12px;
+	margin-top:8px;
+	width:960px;
+	border-collapse:separate;
+}
+.content table td a, .content table td a:visited, .content table td a:hover, .content table td a:active {
+	color:#b8b8b8;
+}
+
+.content table th a, .content table th a:visited, .content table th a:hover, .content table th a:active {
+	color:#fff;
+}
+.content table th {
+	background-color:#ff8700;
+	color:#fff;
+	height:32px;
+	padding-left:10px;
+}
+
+.content table th.mainhead {
+	font-size:13px;
+	font-weight: bold;
+	text-transform: uppercase;
+	width:80px;
+}
+
+.content table th.small-right {
+	text-align:right;
+}
+
+
+.content table th.arrow {
+	text-align:right;
+	padding-right: 12px;
+	width:36px;
+}
+
+.content table td {
+	  padding-left:10px;
+}
+
+/* discussion */
+.content table.discussion-subtable {
+	margin-top:3px;
+}
+.content table.discussion td.filter {
+	background-color:#ff9f33;
+	padding: 0px 0px 0px 10px;
+}
+
+.content table.discussion span.leader {
+	color:#fff;
+}
+
+.content table.discussion select {
+	margin: 0px 15px 0px 25px;
+}
+
+
+.content table.discussion h1 {
+	margin: 0px;
+	padding:0px;
+	color: #000;
+	font-size:16px;
+}
+
+.content table.discussion td {
+	padding:20px 10px;
+	vertical-align:top;
+	border-bottom: 1px solid #cecece;
+}
+.content table.discussion td.button {
+	vertical-align:bottom;
+	padding:0px 10px 0px 0px;
+
+}
+.content table.discussion td.button input {
+	margin-bottom:10px;
+	float:right;
+}
+
+.content table.discussion td.filter input,.content table.discussion td.comment input {
+	margin: 0px;
+	margin-left: 10px;
+	padding: 0px;
+}
+
+.content table.discussion .highlight {
+	color:#66a552;
+}
+
+.content table.discussion td.comment {
+	background-color:#a3c997;
+	border-top: 2px solid #66a552;
+	border-bottom: 2px solid #66a552;
+	padding: 5px 0px 5px 10px;
+}
+
+.content table.discussion td.comment .select-spacer {
+	margin-right:110px;
+
+}
+.content table.discussion td.comment-input {
+	background-color:#d1e4cb;
+	border-bottom: 2px solid #66a552;
+	padding: 5px 10px 5px 10px;
+}
+
+.content table.discussion td.comment-input input {
+	margin-bottom:0px;
+}
+
+/* question */
+.content table.question td {
+	background-color:#ff9f33;
+	vertical-align:top;
+	padding-top:12px;
+	padding-bottom:10px;
+}
+
+.content table.question td.questiontext {
+	font-weight: bold;
+}
+
+.content table.question td div.highlight {
+	color:#fff;
+}
+
+
+/* rating */
+.content table.rating td.bg {
+	padding:0px;
+	background-image:url(../Images/rating_bg.gif);
+}
+
+.content table.rating th.mainhead {
+	width: auto;
+}
+
+.content table.rating th.small-right {
+	width:75px;
+	font-size:13px;
+	text-transform: uppercase;
+}
+
+.content table.rating th.disable {
+	color: #ffab4d;
+}
+
+.content table.rating div.bigform {
+	margin:10px;
+	padding:10px;
+	background-color:#d1e4cb;
+	border:2px solid #66a552;
+
+}
+
+.content table.rating div.bigform h1 {
+	margin: 0px;
+	color: #83b672;
+	font-size:18px;
+}
+
+
+.content table.rating-sub td {
+	vertical-align:top;
+}
+.content table.rating-sub div.smallform {
+	width:120px;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color:#fff;
+	border:2px solid #000;
+
+}
+.content table.rating-sub div.smallform-sub {
+	height:60px;
+}
+
+.content table.rating-sub div.smallform-sub span {
+	margin-left:50px;
+}
+
+.content table.rating-sub div.smallform-sub p.final-rating-text {
+margin-bottom:10px;
+}
+
+.content table.rating-sub div.rating {
+	border:2px solid #66a552;
+	background-color:#d1e4cb;
+}
+
+.content table.rating-sub div.highlight {
+	border:2px solid #66a552;
+}
+
+.content table.rating-sub div.smallform h1 {
+	margin: 0px;
+	color: #000;
+	font-size:16px;
+}
+
+.content table.rating-sub div.highlight h1 {
+	color: #66a552;
+}
+
+
+.content table.rating-sub div span.big {
+	font-size:34px;
+	font-weight: bold;
+}
+
+.content table.rating-sub div.highlight span.big {
+	color: #66a552;
+}
+
+.content table.rating-sub div p.small {
+	font-size:10px;
+}
+
+.content table.rating-sub div.highlight p.small a {
+	color: #66a552;
+}
+
+
+
+
+
+
+/* overview */
+.content table.overview th.arrow {
+	width:58px;
+}
+
+.content table.overview th.sub {
+	font-weight: bold;
+	background-color:#ff9f33;
+	color:#fff;
+	height:20px;
+	padding-left:10px;
+	text-transform: uppercase;
+}
+
+
+.content table.overview td {
+	height:25px;
+	border-bottom: 1px solid #cecece;
+}
+
+.content table.overview td.sme {
+	/*width:80px;*/
+	width:68px;
+	border: 1px solid #cecece;
+	border-top:0px;
+}
+
+.content table.overview td.highlight {
+	background-color:#d1e4cb;
+	border: 1px solid #66a552;
+}
+
+
+
+.content table td.final {
+	padding:0px;
+	margin:0px;
+	background-color:#ff8f12;
+	border: 0px;
+	height: 3px;
+}
+
+.content table td.spacer {
+	padding:0px;
+	margin:0px;
+	background-color:#fff;
+	border: 0px;
+	height: 3px;
+}
+.error, .warning {
+	font-size:14px;
+	background-color: #FFB3B3;
+}
+
+.error {
+	margin: 10px 0px 0px 0px;
+	padding: 5px 10px;
+	border: 2px solid #f00;
+}
+
+/* IE HACK */
+* html body {
+	text-align:center;
+}
+
+* html .content table.rating th.mainhead {
+	width: 687px;
+}
+
+* html .content table.discussion th.mainhead {
+	width: 912px;
+}
+
+* html .content table.discussion .messagetext {
+	width: 800px;
+}
+
+
