@@ -100,7 +100,7 @@ class Tx_Questionrating_Utils_Xmlitem {
 		foreach ($this->xml->answers->option as $answer) {
 			$currentAnswer = array();
 			$currentAnswer['text'] = $this->getTextandCode($answer);
-			$currentAnswer['correct'] = ($answer['correct'] === 'true');
+			$currentAnswer['correct'] = ((string) $answer['correct'] === 'true');
 			$this->answers[] = $currentAnswer;
 		}
 	}

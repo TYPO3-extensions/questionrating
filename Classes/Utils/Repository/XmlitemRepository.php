@@ -73,7 +73,7 @@ class Tx_Questionrating_Utils_Repository_XmlitemRepository {
 				$xmlitem = t3lib_div::makeInstance('Tx_Questionrating_Utils_Xmlitem');
 				$xmlitem->loadXml($this->uploadFolder, $currentFile);
 				$question = $questionRepository->findByXmlId($xmlitem->getId());
-				if (!empty($question)) {
+				if (count($question) > 0) {
 					$xmlitem->setInDb(1);
 				} else {
 					$xmlitem->setInDb(0);

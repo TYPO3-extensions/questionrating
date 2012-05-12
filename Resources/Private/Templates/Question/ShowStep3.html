@@ -10,12 +10,14 @@
 
 						<f:if condition="{renderFinalRatingReviewBox}">
 							<f:then>
-								<f:render section="ratingDetailReview" />
+								<f:render section="ratingDetailReview" arguments="{question: question, ratingArray: ratingArray, currentUser: currentUser}" />
 							</f:then>
 							<f:else>
-								<f:render section="ratingDetailNormal" />
+								<f:render section="ratingDetailNormal" arguments="{question: question, ratingArray: ratingArray, currentUser: currentUser, renderFinalRatingBox: renderFinalRatingBox, renderFinalViewBox: renderFinalViewBox, finalRating: finalRating}" />
 							</f:else>
 						</f:if>
+				<f:render partial="rating2" arguments="{currentStep: 3}" />
+				<f:render partial="discussion" arguments="{question: question, leaderGroup: leaderGroup, isLeader: isLeader, currentUser: currentUser, allowDiscussion: 0}"/>
 </f:section>
 
 <f:section name="ratingDetailNormal">
@@ -36,7 +38,7 @@
 										</f:if>
 									</td>
 									<!-- ###STEP2_CELL### end -->
-								</f:for>
+									</f:for>
 								</tr>
 							</table>
 							<!-- ###STEP2### end -->
@@ -68,8 +70,5 @@
 							</table>
 </f:form>
 							<!-- ###STEP2### end -->
-
-				<f:render partial="rating2" arguments="{currentStep: 3}" />
-				<f:render partial="discussion" arguments="{question: question, leaderGroup: leaderGroup, isLeader: isLeader, currentUser: currentUser, allowDiscussion: 0}"/>
 </f:section>
 

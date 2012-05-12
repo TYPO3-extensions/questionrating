@@ -38,7 +38,7 @@
 										</f:if>
 									</f:else>
 								</f:if>
-									<br/><f:format.date format="H:i:s">{discussion.crdate}</f:format.date></td>
+									<br/><f:format.date format="d.m.Y, H:i:s">{discussion.crdate}</f:format.date></td>
 							<td class="messagetext">{discussion.message}</td>
 							<td class="small-right button">
 							<f:if condition="{qr:inArray(needle:'{leaderGroup}' array:'{discussion.fromUser.usergroups}')}">
