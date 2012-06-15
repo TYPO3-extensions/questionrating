@@ -72,6 +72,8 @@ class Tx_Questionrating_Domain_Repository_QuestionRepository extends Tx_Extbase_
 											'WHERE ' .
 											'question.status = "' . $status . '" AND ' .
 											'question.active = 1 AND ' .
+											'question.deleted = 0 AND ' .
+											'question.hidden = 0 AND ' .
 											'question.uid = rating.question AND ' .
 											'rating.user = ' . $user->getUid()
 									)->execute();
@@ -90,6 +92,8 @@ class Tx_Questionrating_Domain_Repository_QuestionRepository extends Tx_Extbase_
 											'(question.status = "final" OR ' .
 											'question.status = "review") AND ' .
 											'question.active = 1 AND ' .
+											'question.deleted = 0 AND ' .
+											'question.hidden = 0 AND ' .
 											'question.uid = rating.question AND ' .
 											'rating.user = ' . $user->getUid()
 									)->execute();
