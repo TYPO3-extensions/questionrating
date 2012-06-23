@@ -23,7 +23,7 @@
 ***************************************************************/
 
 
-class Tx_Questionrating_Controller_BaseController extends Tx_MvcExtjs_ExtJS_Controller_ActionController {
+class Tx_Questionrating_Controller_BaseController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * Initializes the current action
